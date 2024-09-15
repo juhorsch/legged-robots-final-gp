@@ -47,3 +47,22 @@ class Planner:
         return self.foot_planner.evaluate_trajectory(time, for_control=True)
 
 
+    def evaluate_trajectory(self, time) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        """
+        Evaluate the trajectory at a given time.
+        Parameters:
+        - time: The time at which to evaluate the trajectory.
+        Returns:
+        - X: The concatenated array of body positions and foot positions at the given time.
+        - V: The concatenated array of body velocities and foot velocities at the given time.
+        - A: The concatenated array of foot accelerations at the given time.
+        """
+
+        o_X_b, o_V_b = self.base_planner.evaluate_trajectory(time)
+        o_pos_feet, o_vel_feet, o_acc_feet = self.foot_planner.evaluate_trajectory(time)
+        
+        X = np.hstack([o_X_b.flatten(), o_pos_feet.flatten()])
+        V = np.hstack([o_V_b.flatten(), o_vel_feet.flatten()])
+        A = np.hstack([o_acc_feet.flatten()])
+        
+        return X, V, A
