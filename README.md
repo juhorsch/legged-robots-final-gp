@@ -34,5 +34,5 @@ The detailed report for the project can be found in the [`final_project.ipynb`](
 ├── .gitignore             
 ├── final_project.ipynb          # Complete project demonstration aka the report
 ├── LeggedRobotsGP.yml           
-├── MPC_Example.ipynb            # MPC use case demonstrations
+└── MPC_Example.ipynb            # MPC use case demonstrations
 ```
