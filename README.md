@@ -19,8 +19,9 @@ The detailed report for the project can be found in the [`final_project.ipynb`](
     conda activate LeggedRobotsGP
     ```
 
-3. Ensure MuJoCo is installed on your system, and set up your environment to include the MuJoCo Python bindings.
+3. Ensure MuJoCo is correctly installed on your system.
 
+## The Project Structure
 
 ```bash              
 ├── model/                       # Directory for robot model files (Unitree Go2)
